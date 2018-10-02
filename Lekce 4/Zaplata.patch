@@ -1,0 +1,11 @@
+--- Srafovani.java	2018-10-02 17:25:00.029503600 +0200
++++ Srafovani.java	2018-10-02 18:18:19.206918700 +0200
+@@ -4,7 +4,7 @@
+         int vyska = 10;
+  
+         for (int radek = 0; radek < vyska; radek++) {
+-            for (int odsazeni = 0; odsazeni < radek; odsazeni++) {
++            for (int odsazeni = vyska - radek - 1; odsazeni > 0; odsazeni--) {
+                 System.out.print(" ");
+             }
+             for (int pruh = 0; pruh < pruhy; pruh++) {
