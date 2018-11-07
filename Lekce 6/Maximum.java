@@ -10,6 +10,6 @@ public class Maximum {
         maxCislo = cislo;        
       }      
     }
-    System.out.printf("Nejvyssi cislo je: %d", maxCislo); 
+    System.out.printf("Nejvyssi cislo je: %d", maxCislo);     
   }
 }
