@@ -27,7 +27,7 @@ public class DenVRoce {
       return false;           
     }
     
-    public static int pocetDnuMesice(int mesic, int rok){
+    public static int pocetDnuMesice(int mesic, int rok){ //NE NEBUDU POUZIVAT JEDNODUCHY ARRAY!
     if (mesic <= 7) {
       if(mesic == 2){
         if(jePrestupny(rok))
