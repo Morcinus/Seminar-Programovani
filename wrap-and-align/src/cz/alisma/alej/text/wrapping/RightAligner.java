@@ -8,7 +8,6 @@ public class RightAligner implements Aligner{
     @Override
     public String format(List<String> words) {
         StringBuilder result = new StringBuilder();
-        width = WrapAndAlign.MAX_WIDTH;
         
         boolean first = true;
         for (String w : words) {
@@ -28,5 +27,9 @@ public class RightAligner implements Aligner{
         }
         
         return result.toString();
+    }
+    
+    public RightAligner(int w) {
+    	width = w;
     }
 }

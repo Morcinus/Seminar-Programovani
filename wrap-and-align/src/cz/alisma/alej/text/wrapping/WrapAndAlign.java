@@ -27,12 +27,12 @@ package cz.alisma.alej.text.wrapping;
 import java.util.Scanner;
 
 public class WrapAndAlign {
-    static final int MAX_WIDTH = 50;
+    private static final int MAX_WIDTH = 50;
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         ParagraphDetector pd = new ParagraphDetector(input);
-        Aligner aligner = new RightAligner();
+        Aligner aligner = new RightAligner(MAX_WIDTH);
 
         while (pd.hasNextParagraph()) {
             Paragraph para = pd.nextParagraph();
