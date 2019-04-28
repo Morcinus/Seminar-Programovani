@@ -1,6 +1,5 @@
 package cz.alisma.alej.text.wrapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class JustifyAligner implements Aligner {
@@ -9,22 +8,16 @@ public class JustifyAligner implements Aligner {
 	@Override
 	public String format(List<String> words) {
 
-		// !!! ARRAY spaceIndexes TEORETICKY NEMUSI BYT, STACI POCITAT ARRAY result OD 1
-
 		// Deklarace promennych
-		List<Integer> spaceIndexes = new ArrayList<Integer>();
 		String[] result = new String[words.size()];
 		int stringLength = 0;
 		boolean first = true;
 
-		// Prevod listu words na string array
-		// Secteni delky radku
-		// Pridani mezer mezi slovy
+		// Prida mezery pred slova a prevede do result; spocita delku radku
 		for (int i = 0; i < result.length; i++) {
 			if (!first) {
 				result[i] = " " + words.get(i);
 				stringLength += 1 + words.get(i).length();
-				spaceIndexes.add(i);
 			} else {
 				result[i] = words.get(i);
 				stringLength += words.get(i).length();
@@ -32,14 +25,16 @@ public class JustifyAligner implements Aligner {
 			}
 		}
 
-		// Vyplneni mezerama
-		int y = 0;
-		for (int i = 0; i < width - stringLength; i++) {
-			result[spaceIndexes.get(y)] = " " + result[spaceIndexes.get(y)];
-			if (y < spaceIndexes.size() - 1) {
+		// Osetreni pro radky s jednim slovem
+		int y = (result.length != 1) ? 1 : 0;
+
+		// Vyplneni textu mezerama - zarovna do bloku
+		for (int i = 0; i <= width - stringLength; i++) {
+			result[y] = " " + result[y];
+			if (y < result.length - 1) {
 				y++;
 			} else {
-				y = 0;
+				y = (result.length != 1) ? 1 : 0;
 			}
 		}
 
